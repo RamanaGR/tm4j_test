@@ -1,7 +1,7 @@
 import org.junit.Test;
 
 
-  import static org.junit.Assert.*;
+import static org.junit.Assert.*;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -11,26 +11,31 @@ import org.openqa.selenium.opera.OperaDriver;
 import com.adaptavist.tm4j.junit.annotation.TestCase;
 
 public class TestGoogle {
-        public static WebDriver driver;
+    public static WebDriver driver;
 
-        @BeforeClass
-        public static void setUp()
-        {
-            System.setProperty("webdriver.opera.driver", "C:\\Users\\chinn\\IdeaProjects\\tm4j_Test\\operadriver.exe");
-            driver=new OperaDriver();
-            driver.get("https://www.google.com");
-        }
+    @BeforeClass
+    public static void setUp() {
+        System.setProperty("webdriver.opera.driver", "C:\\Users\\chinn\\IdeaProjects\\tm4j_Test\\operadriver.exe");
+        driver = new OperaDriver();
+        driver.get("https://www.google.com");
+    }
 
-        @Test
-        @TestCase(key="BR-T1")
-        public void test() {
-            String title=driver.getTitle();
-            assertEquals(title,"Google");
-        }
+    @Test
+    @TestCase(key = "BR-T1")
+    public void test() {
+        String title = driver.getTitle();
+        assertEquals(title, "Google");
+    }
 
-        @AfterClass
-        public static void tearDown()
-        {
-            driver.quit();
-        }
+    @Test
+    @TestCase(key = "BR-T2")
+    public void test2() {
+        String title = driver.getTitle();
+        assertEquals(title, "Yahoo");
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        driver.quit();
+    }
 }
